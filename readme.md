@@ -1,1 +1,2 @@
 # My blog
+theme: minima
