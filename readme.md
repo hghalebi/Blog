@@ -2,7 +2,7 @@
 theme: minima
 
 ## Last posts:
-* [How to Remember Your Code When You’re Not as Young as You Used to Be](/44MUNKFGSaOyQ6qBafrt3g)
+* [How to Remember Your Code When You’re Not as Young as You Used to Be](https://github.com/hghalebi/Blog/blob/c56db3197a2b849b8fee435c8e66c446a44d943f/Remember%20Your%20Code.md)
 * 
 
 
