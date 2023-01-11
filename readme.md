@@ -1,3 +1,4 @@
+<meta name="google-site-verification" content="rai8Ec97oirBJqLw6EIwdoWYBcTlzzef6UfzY0mwEzA" />
 # Hamze Ghalebi's blog
 theme: minima
 
