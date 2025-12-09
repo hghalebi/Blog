@@ -17,7 +17,7 @@ Install the Aegis deployment library and the core agent SDK.
 ```bash
 pip install aegis-deploy agents pydantic
 
-
+```
 ⸻
 
 Step 2: Project Structure
@@ -27,7 +27,7 @@ Aegis requires a minimal configuration file at your project root to handle envir
 my-project/
 ├── app.py          # Your agent code
 └── aegis.toml      # Project configuration
-
+```bash
 aegis.toml:
 
 [env]
@@ -36,7 +36,7 @@ OPENAI_API_KEY = "env:OPENAI_API_KEY"
 [azure]
 region = "westeurope"
 resource_group = "aegis-guardrails"
-
+```
 
 ⸻
 
@@ -48,7 +48,7 @@ Below is the transformation from a local script to a production service.
 
 Local Agent Function
 Standard Open Agent SDK code.
-
+```python
 from agents import GuardrailFunctionOutput, Agent, Runner
 from pydantic import BaseModel
 
@@ -73,9 +73,10 @@ async def homework_guardrail(ctx, agent, input_data):
         tripwire_triggered=not final_output.is_homework,
     )
 
+```
 Production Service
 Ready for deployment with one decorator.
-
+```python
 from aegis_deploy import aegis
 from agents import GuardrailFunctionOutput, Agent, Runner
 from pydantic import BaseModel
@@ -116,6 +117,8 @@ async def homework_guardrail(ctx, agent, input_data):
         tripwire_triggered=not final_output.is_homework,
     )
 
+```
+
 The decorator expresses production configuration, not business logic.
 
 ⸻
@@ -123,16 +126,16 @@ The decorator expresses production configuration, not business logic.
 Step 4: Deploy
 
 Deploying is a single command. Aegis parses your decorators, builds the container, registers routes, and provisions resources.
-
+```bash
 aegis deploy azure
-
+```
 Output:
-
+```bash
 ⠋ Analyzing dependency graph…
 ⠙ Provisioning Azure Resources (West Europe)…
 ✓ Service homework-guardrail active.
 Endpoint: https://api.aegis.cloud/guardrails/homework
-
+```
 ⸻
 
 Features
@@ -168,8 +171,9 @@ Observability
 Aegis injects a protected context into ctx. You get logging, metrics, and tracing out of the box.
 
 # Inside your agent function
+```python
 ctx.log.info("Evaluating guardrail call")
 ctx.metrics.increment("guardrail.homework.requests")
-
+```
 All logs are automatically exported to your cloud provider’s observability suite.
 
