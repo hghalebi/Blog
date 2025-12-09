@@ -23,10 +23,12 @@ pip install aegis-deploy agents pydantic
 Step 2: Project Structure
 
 Aegis requires a minimal configuration file at your project root to handle environment-level settings.
-
+```bash
 my-project/
 ├── app.py          # Your agent code
 └── aegis.toml      # Project configuration
+```
+
 ```bash
 aegis.toml:
 
@@ -145,6 +147,7 @@ Deployment Primitives
 Aegis maps decorator parameters directly to cloud infrastructure primitives. You never touch containers, Terraform, or YAML.
 
 Primitive	Description
+
 name	The unique identifier for the service.
 route	The public HTTP endpoint path.
 compute	Abstracted resource envelope (for example standard.cpu.xs).
@@ -159,9 +162,9 @@ scale	Autoscaling boundaries (min and max).
 Local Development
 
 You can simulate the full production environment locally.
-
+```bash
 aegis dev
-
+```
 This spins up an HTTP server that mirrors the exact routes and auth behavior you will have in production.
 
 ⸻
